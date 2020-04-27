@@ -1,0 +1,365 @@
+swagger: '2.0'
+info:
+  version: -1.-1.-1
+  title: video surveillance waste API (just rubbish)  
+host: api.pettystreamer.org  
+schemes:
+    - https
+definitions:
+  User:
+    properties:
+      id:
+        type: integer
+      status:
+        type: string 
+      login:
+        type: string
+      password:
+        type: string
+      phone:
+        type: string
+      email:
+        type: string 
+      authorizingOrganisation:
+        type: string
+      registeredOn:
+        type: object 
+      lastUpdateOn:
+        type: object
+      note:
+        type: string
+  Server:
+    properties:
+      id:
+        type: integer
+      networkAddress:
+        type: string 
+      productName:
+        type: string
+      vendor:
+        type: string
+      registeredOn:
+        type: object 
+      lastUpdateOn:
+        type: object
+      note:
+        type: string
+  Camera:
+    properties:
+      id:
+        type: integer
+      networkAddress:
+        type: string 
+      productName:
+        type: string
+      location:
+        type: string  
+      vendor:
+        type: string
+      registeredOn:
+        type: object 
+      lastUpdateOn:
+        type: object
+      note:
+        type: string  
+  Record:
+    properties:
+      id:
+        type: integer
+      camera:
+        type: object
+      fileName:
+        type: string
+      fileSize:
+        type: integer  
+      fileExtension:
+        type: object  
+      duration:
+        type: integer 
+      timeStart:
+        type: object
+      timeFinish:
+        type: object 
+      vendor:
+        type: string
+      savedOn:
+        type: object  
+      lastUpdateOn:
+        type: object
+      note:
+        type: string        
+  UserStatus:
+    type: string 
+    enum: [ACTIVE, BLOCKED, SUSPENDED, DELETED]
+  FileExtension:
+    type: string 
+    enum: [AVI, FLV, MP4, MPEG, WMV]  
+tags: 
+  - name: user
+  - name: server
+  - name: camera
+  - name: record 
+  - name: dispatcher
+  - name: analytics controller
+  - name: mediaserver
+basePath: /
+paths:
+  /addUser:
+    post:
+      description: append new user to app access DB  
+      tags: 
+      - user
+      parameters:
+        - in: body
+          name: user
+          schema:
+            type: object
+            properties:
+              login:
+                type: string
+              password:
+                type: string  
+              phone:
+                type: string 
+              email:
+                type: string   
+              authorizingOrganisation:
+                type: string  
+      responses:
+        '200':
+          description: OK
+  /deleteUser:        
+    post:
+      description: remove specific user from app access DB  
+      tags: 
+      - user
+      parameters:
+        - in: body
+          name: user
+          schema:
+            type: object
+            properties:
+              login:
+                type: string
+              password:
+                type: string  
+              phone:
+                type: string 
+              email:
+                type: string   
+              authorizingOrganisation:
+                type: string  
+      responses:
+        '200':
+          description: OK    
+  /setUserUpdate:        
+    put:
+      description: push user record update to app access DB  
+      tags: 
+      - user
+      parameters:
+        - in: body
+          name: user
+          schema:
+            type: object
+            properties:
+              login:
+                type: string
+              password:
+                type: string  
+              phone:
+                type: string 
+              email:
+                type: string   
+              authorizingOrganisation:
+                type: string  
+      responses:
+        '200':
+          description: OK             
+  /addServer:
+    post:
+      description: append new server to devise DB  
+      tags: 
+      - server
+      parameters:
+        - in: body
+          name: server
+          schema:
+            type: object
+            properties:
+              networkAddress:
+                type: string
+              productName:
+                type: string  
+              vendor:
+                type: string 
+      responses:
+        '200':
+          description: OK
+  /deleteServer:
+    post:
+      description: remove specific server from devise DB  
+      tags: 
+      - server
+      parameters:
+        - in: body
+          name: server
+          schema:
+            type: object
+            properties:
+              networkAddress:
+                type: string
+              productName:
+                type: string  
+              vendor:
+                type: string 
+      responses:
+        '200':
+          description: OK        
+  /setServerUpdate:
+    put:
+      description: push updated server info to devise DB  
+      tags: 
+      - server
+      parameters:
+        - in: body
+          name: server
+          schema:
+            type: object
+            properties:
+              networkAddress:
+                type: string
+              productName:
+                type: string  
+              vendor:
+                type: string 
+      responses:
+        '200':
+          description: OK 
+  /addCamera:
+    post:
+      description: append new surveillance camera to devise DB
+      tags: 
+      - camera
+      parameters:
+        - in: body
+          name: camera
+          schema:
+            type: object
+            properties:
+              networkAddress:
+                type: string
+              location:
+                type: string  
+              productName:
+                type: string  
+              vendor:
+                type: string 
+      responses:
+        '200':
+          description: OK
+  /deleteCamera:
+    post:
+      description: remove specific camera from devise DB  
+      tags: 
+      - camera
+      parameters:
+        - in: body
+          name: camera
+          schema:
+            type: object
+            properties:
+              networkAddress:
+                type: string
+              productName:
+                type: string  
+              vendor:
+                type: string 
+      responses:
+        '200':
+          description: OK        
+  /setCameraUpdate:
+    put:
+      description: push updated camera attributes to devise DB
+      tags: 
+      - camera
+      parameters:
+        - in: body
+          name: camera
+          schema:
+            type: object
+            properties:
+              networkAddress:
+                type: string
+              productName:
+                type: string  
+              vendor:
+                type: string 
+      responses:
+        '200':
+          description: OK 
+  /addRecord:
+    post:
+      description: append new record to footage DB
+      tags: 
+      - record
+      parameters:
+        - in: body
+          name: record
+          schema:
+            type: object
+            properties:
+              camera:
+                type: object
+              fileName:
+                type: string  
+              fileSize:
+                type: integer
+              fileExtension:
+                type: object
+              duration:
+                type: integer  
+              timeStart:
+                type: object    
+              timeFinish:
+                type: object     
+      responses:
+        '200':
+          description: OK
+  /findAllServers:
+    get:
+      description: extract full lot of server items available
+      tags: 
+      - dispatcher
+      responses:
+        '200':
+          description: total set of servers
+  /findServerByCamId:
+    get:
+      description: extract a server instance by associate camera id 
+      tags: 
+      - dispatcher
+      parameters:
+        - name: cameraId
+          in: path
+          required: true
+          type: integer
+      responses:
+        '200':
+           description: server instance
+  /findCamerasByServerId:
+     get:
+      description: extract set of server-bound cameras 
+      tags: 
+      - dispatcher
+      parameters:
+        - name: serverId
+          in: path
+          required: true
+          type: integer
+      responses:
+        '200':
+          description: set of server-specified cameras 
+          
+          
+     
