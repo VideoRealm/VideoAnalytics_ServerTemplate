@@ -14,4 +14,5 @@ Analytics-running server template code for a [ultimately censored] app - just an
 - БД записей (с видеокамер).
 
 Рис. 1. Схема генерации и передачи видеопотока в реальном времени (live stream).
+![livestream-Page-1](https://user-images.githubusercontent.com/55311053/80383614-19f93d00-88a4-11ea-9b00-16620c020dd8.jpg)
 
