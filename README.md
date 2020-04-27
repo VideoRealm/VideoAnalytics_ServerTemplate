@@ -28,11 +28,8 @@ Analytics-running server template code for a [ultimately censored] app - just an
 9.	Полученный видеопоток воспроизводится в диалоговом окне клиентского приложения (с поддержкой индивидуального выбора параметров качества воспроизведения).  
   
 Рис. 2. Схема определения базовых классов (not match, but tribute to UML class diagram).
-![allegedClasses](https://user-images.githubusercontent.com/55311053/80385177-0c44b700-88a6-11ea-80b3-893dc34bb0cd.jpg)
-
-<br/>
 Рис. 3. Схема определения программных интерфейсов.
-![allegedClasses](https://user-images.githubusercontent.com/55311053/80385959-0a2f2800-88a7-11ea-9d30-05b1310d691f.jpg)
+![controller_db](https://user-images.githubusercontent.com/55311053/80387445-f1277680-88a8-11ea-8e96-ada1f01def62.jpg)
 
 Таблица 1. Состав и назначение функций API контроллера.
 | Функция | Назначение|
