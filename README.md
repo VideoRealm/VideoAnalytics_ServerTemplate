@@ -28,7 +28,7 @@ Analytics-running server template code for a [ultimately censored] app - just an
 9.	Полученный видеопоток воспроизводится в диалоговом окне клиентского приложения (с поддержкой индивидуального выбора параметров качества воспроизведения).  
 
 Рис. 2. Схема определения базовых классов (not match, but tribute to UML class diagram).
-![controller_shrunk](https://user-images.githubusercontent.com/55311053/80387711-3c418980-88a9-11ea-9a27-a9d2d66c4345.jpg)
+![allegedClasses (2)](https://user-images.githubusercontent.com/55311053/80410118-58a1ee00-88ca-11ea-870e-07491dda0dd3.jpg)
 <br/><br/><br/>
 
 Рис. 3. Схема определения программных интерфейсов.
